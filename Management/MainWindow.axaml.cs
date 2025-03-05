@@ -19,5 +19,15 @@ namespace Management
 
             SelectedStaff.ItemsSource = StaticActions.staff.Where(s => s.Departmentid == (ShowDepartments.SelectedItem as DepartmentDTO).Id).ToList();
         }
+
+        private void AddWorker(object? sender, Avalonia.Interactivity.RoutedEventArgs e)
+        {
+            new StaffCard().ShowDialog(this);
+        }
+
+        private void ListBox_SelectionChanged_1(object? sender, Avalonia.Controls.SelectionChangedEventArgs e)
+        {
+            new StaffCard((SelectedStaff.SelectedItem as Staff).Id).ShowDialog(this);
+        }
     }
 }

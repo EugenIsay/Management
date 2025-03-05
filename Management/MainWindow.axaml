@@ -14,7 +14,7 @@
 		</Grid>
 		<Grid DockPanel.Dock="Top" ColumnDefinitions="*,10*,*,10*,*" RowDefinitions="*,20*,*">
 			<Border Background="LightGray" Grid.Column="1" Grid.Row="1">
-				<TreeView SelectionChanged="TreeView_SelectionChanged" Margin="50"
+				<TreeView Background="" SelectionChanged="TreeView_SelectionChanged" Margin="50"
 						  Name="ShowDepartments"
 						  SelectionMode="Single">
 					<TreeView.ItemTemplate>
@@ -29,29 +29,35 @@
 				</TreeView>
 			</Border>
 			<Border Background="LightGray" Grid.Column="3" Grid.Row="1">
-				<ListBox Name="SelectedStaff">
-					<ListBox.ItemTemplate>
-						<DataTemplate>
-							<Border Background="LightGreen">
-								<Grid RowDefinitions="*,*,*,*">
-									<StackPanel Orientation="Horizontal">
-										<TextBlock Text="{Binding Department.Name}"/>
-										<TextBlock Text=" - "/>
-										<TextBlock Text="{Binding Position.Name}"/>
-									</StackPanel>
-									<TextBlock Grid.Row="1" Text="{Binding FullName}"/>
-									<StackPanel Grid.Row="2" Orientation="Horizontal">
-										<TextBlock Text="{Binding Phone}"/>
-										<TextBlock Text=" "/>
-										<TextBlock Text="{Binding Email}"/>
-									</StackPanel>
-									<TextBlock Grid.Row="3" Text="{Binding Cabinet.Title}"/>
-								</Grid>
-							</Border>
-						</DataTemplate>
-					</ListBox.ItemTemplate>
-				</ListBox>
-
+				<Grid>
+					<ListBox SelectionChanged="ListBox_SelectionChanged_1" Background="Transparent" Name="SelectedStaff">
+						<ListBox.ItemTemplate>
+							<DataTemplate>
+								<Border Background="LightGreen">
+									<Grid RowDefinitions="*,*,*,*">
+										<StackPanel Orientation="Horizontal">
+											<TextBlock Text="{Binding Department.Name}"/>
+											<TextBlock Text=" - "/>
+											<TextBlock Text="{Binding Position.Name}"/>
+										</StackPanel>
+										<TextBlock Grid.Row="1" Text="{Binding FullName}"/>
+										<StackPanel Grid.Row="2" Orientation="Horizontal">
+											<TextBlock Text="{Binding Phone}"/>
+											<TextBlock Text=" "/>
+											<TextBlock Text="{Binding Email}"/>
+										</StackPanel>
+										<TextBlock Grid.Row="3" Text="{Binding Cabinet.Title}"/>
+									</Grid>
+								</Border>
+							</DataTemplate>
+						</ListBox.ItemTemplate>
+					</ListBox>
+					<Button Margin="20" HorizontalAlignment="Right" VerticalAlignment="Bottom" CornerRadius="10" Background="LightGray" FontSize="30" Click="AddWorker">
+						<Border Background="LightGreen" CornerRadius="10" BorderThickness="3">
+							<TextBlock Text="+" Margin="20"/>
+						</Border>
+					</Button>
+				</Grid>
 			</Border>
 		</Grid>
 	</DockPanel>

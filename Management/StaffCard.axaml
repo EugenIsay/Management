@@ -1,0 +1,66 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="1920" d:DesignHeight="1080"
+        x:Class="Management.StaffCard"
+        Title="StaffCard">
+	<Window.Styles>
+		<Style Selector="TextBox">
+			<Setter Property="VerticalAlignment" Value="Top"/>
+		</Style>
+		<Style Selector="ComboBox">
+			<Setter Property="HorizontalAlignment" Value="Stretch"/>
+		</Style>
+		<Style Selector="TextBlock">
+			<Setter Property="VerticalAlignment" Value="Bottom"/>
+		</Style>
+	</Window.Styles>
+	<Grid ColumnDefinitions="*,10*,*,10*,*" Background="LightGray" RowDefinitions="*,20*,*">
+		<Border Grid.Column="1" Grid.Row="1" Background="White" >
+			<Grid RowDefinitions="*,*,*,*,*,*,*,*,*,*,*,*,*" ColumnDefinitions="*,10*,*">
+				<TextBlock Grid.Column="1" Grid.Row="0" Text="ФИО сотрудника"/>
+				<Grid Grid.Column="1" Grid.Row="1" ColumnDefinitions="*,*,*">
+					<TextBox Grid.Column="0" Name="Surname" Watermark="Фамилия"/>
+					<TextBox Grid.Column="1" Name="Name" Watermark="Имя"/>
+					<TextBox Grid.Column="2" Name="Patronimic" Watermark="Отчество"/>
+				</Grid>
+				<TextBlock Grid.Column="1" Grid.Row="2" Text="Дата рождения"/>
+				<DatePicker Grid.Column="1" Grid.Row="3" Name="BDay"/>
+				<TextBlock Grid.Column="1" Grid.Row="4" Text="Контактные данные"/>
+				<Grid ColumnDefinitions="*,*,*" Grid.Column="1" Grid.Row="5">
+					<TextBox Grid.Column="0" Watermark="Телефон" Name="Phone"/>
+					<TextBox Grid.Column="1" Watermark="Email" Grid.ColumnSpan="2" Name="Email"/>
+				</Grid>
+				<TextBlock Grid.Column="1" Grid.Row="6" Text="Департамент"/>
+				<ComboBox Grid.Column="1" Grid.Row="7" Name="DepartamentCB">
+					<ComboBox.ItemTemplate>
+						<DataTemplate>
+							<TextBlock Text="{Binding Name}"/>
+						</DataTemplate>
+					</ComboBox.ItemTemplate>
+				</ComboBox>
+				<TextBlock Grid.Column="1" Grid.Row="8" Text="Должность"/>
+				<ComboBox Grid.Column="1" Grid.Row="9" Name="PositionCB">
+					<ComboBox.ItemTemplate>
+						<DataTemplate>
+							<TextBlock Text="{Binding Name}"/>
+						</DataTemplate>
+					</ComboBox.ItemTemplate>
+				</ComboBox>
+				<TextBlock Grid.Column="1" Grid.Row="10" Text="Кабинет"/>
+				<ComboBox Grid.Column="1" Grid.Row="11" Name="CaninetCB">
+					<ComboBox.ItemTemplate>
+						<DataTemplate>
+							<TextBlock Text="{Binding Title}"/>
+						</DataTemplate>
+					</ComboBox.ItemTemplate>
+				</ComboBox>
+			</Grid>
+
+		</Border>
+		<Border Grid.Column="3" Grid.Row="1" Background="White">
+			
+		</Border>
+	</Grid>
+</Window>
