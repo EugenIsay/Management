@@ -33,7 +33,7 @@
 					<ListBox SelectionChanged="ListBox_SelectionChanged_1" Background="Transparent" Name="SelectedStaff">
 						<ListBox.ItemTemplate>
 							<DataTemplate>
-								<Border Background="LightGreen">
+								<Border Tag="{Binding Id}"  DoubleTapped="Border_DoubleTapped" Background="LightGreen">
 									<Grid RowDefinitions="*,*,*,*">
 										<StackPanel Orientation="Horizontal">
 											<TextBlock Text="{Binding Department.Name}"/>
